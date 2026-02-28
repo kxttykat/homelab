@@ -1,0 +1,183 @@
+- name: Startpage
+  width: slim
+  hide-desktop-navigation: false
+  center-vertically: true
+  columns:
+    - size: full
+      widgets:
+
+        - type: reddit
+          subreddit: technology
+          show-thumbnails: true
+
+        - type: search
+          autofocus: true
+          search-engine: google
+          new-tab: true
+          bangs:
+            - title: YouTube
+              shortcut: "!yt"
+              url: https://www.youtube.com/results?search_query={QUERY}
+
+        - type: monitor
+          cache: 1m
+          title: Services
+          sites:
+            - title: Proxmox Virtual Environment
+              url: https://192.168.1.1:8006/
+              allow-insecure: true
+              icon: di:proxmox
+            - title: Proxmox Backup Server
+              url: https://192.168.1.2:8007/
+              allow-insecure: true
+              icon: di:proxmox
+            - title: IPMI
+              url: https://192.168.1.3/
+              allow-insecure: true
+              icon: di:supermicro
+            - title: IDRAC
+              url: https://192.168.1.4/
+              allow-insecure: true
+              icon: di:dell
+            - title: Netbird
+              url: [INSERT NETBIRD URL HERE]
+              allow-insecure: false
+              icon: di:netbird
+            - title: AdGuard
+              url: http://192.168.1.6:80/
+              allow-insecure: true
+              icon: di:adguard-home
+            - title: Beszel
+              url: http://192.168.1.7:8090/
+              allow-insecure: true
+              icon: di:beszel
+            - title: Dockhand
+              url: http://192.168.1.8:3000/
+              allow-insecure: true
+              icon: di:docker
+            - title: Immich
+              url: http://192.168.1.10:2283/
+              allow-insecure: true
+              icon: di:immich
+            - title: Navidrome
+              url: http://192.168.1.13:4533/
+              allow-insecure: true
+              icon: di:navidrome
+            - title: Jellyfin
+              url: http://192.168.1.11:8096/
+              allow-insecure: true
+              icon: di:jellyfin
+            - title: Jellyseerr
+              url: http://192.168.1.11:5055/
+              allow-insecure: true
+              icon: di:jellyseerr
+            - title: Radarr
+              url: http://192.168.1.11:7878/
+              allow-insecure: true
+              icon: di:radarr
+            - title: Sonarr
+              url: http://192.168.1.11:8989/
+              allow-insecure: true
+              icon: di:sonarr
+            - title: Prowlarr
+              url: http://192.168.1.11:9696/
+              allow-insecure: true
+              icon: di:prowlarr
+            - title: QBitorrent
+              url: http://192.168.1.11:8080/
+              allow-insecure: true
+              icon: di:qbittorrent
+            - title: Scanopy
+              url: http://192.168.1.14:60072/
+              allow-insecure: true
+              icon: di:scanopy
+
+
+- name: Home
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+    - size: small
+      widgets:
+        - type: calendar
+          first-day-of-week: monday
+
+        - type: rss
+          limit: 10
+          collapse-after: 3
+          cache: 12h
+          feeds:
+            - url: https://selfh.st/rss/
+              title: selfh.st
+            - url: https://ciechanow.ski/atom.xml
+            - url: https://www.joshwcomeau.com/rss.xml
+              title: Josh Comeau
+            - url: https://samwho.dev/rss.xml
+            - url: https://ishadeed.com/feed.xml
+              title: Ahmad Shadeed
+
+        - type: twitch-channels
+          channels:
+            - Sanchovies
+            - perryjg
+            - Dantes
+            - Viper
+            - Huncho
+            - mrekk
+
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+            - type: lobsters
+
+        - type: videos
+          channels:
+            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+            - UCl2mFZoRqjw_ELax4Yisf6w # Louis Rossmann
+            - UCtMVHI3AJD4Qk4hcbZnI9ZQ # SomeOrdinaryGamers
+            - UC5UAwBUum7CPN5buc-_N1Fw # The Linux Experiment
+            - UCf2yZHYK7dzbo6BYjfZBNLQ # Urbex Hill
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: unixporn
+              show-thumbnails: true
+            - type: reddit
+              subreddit: selfhosting
+              show-thumbnails: true
+
+    - size: small
+      widgets:
+        - type: weather
+          location: Edinburgh, United Kingdom
+          units: metric # alternatively "imperial"
+          hour-format: 24h # alternatively "24h"
+          # Optionally hide the location from being displayed in the widget
+          # hide-location: true
+
+        - type: markets
+          markets:
+            - symbol: SPY
+              name: S&P 500
+            - symbol: BTC-USD
+              name: Bitcoin
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: AAPL
+              name: Apple
+            - symbol: MSFT
+              name: Microsoft
+
+        - type: releases
+          cache: 1d
+          # Without authentication the Github API allows for up to 60 requests per hour. You can create a
+          # read-only token from your Github account settings and use it here to increase the limit.
+          # token: ...
+          repositories:
+            - netbirdio/netbird
+            - sharkord/sharkord
+            - immich-app/immich
+            - henrygd/beszel
