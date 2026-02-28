@@ -45,7 +45,7 @@ ipmitool -H 192.168.1.3 -U ADMIN -P ADMIN raw 0x30 0x70 0x66 0x01 0x01 0x16
 Type=oneshot
 RemainAfterExit=yes
 ExecStartPre=/bin/sleep 5
-ExecStart=/root/scripts/fan_speed.sh
+ExecStart=/root/scripts/fan-speed.sh
 
 [Install]
 WantedBy=multi-user.target
