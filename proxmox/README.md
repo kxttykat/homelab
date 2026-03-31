@@ -16,6 +16,7 @@ qm set 1000 --serial0 socket --vga serial0
 qemu-img resize debian-13-generic-amd64.qcow2 16G
 
 virt-customize -a debian-13-generic-amd64.qcow2 \
+  --update \
   --install qemu-guest-agent,docker.io,docker-compose,git,wget,curl,rsync,htop,nano,tmux,fastfetch,fail2ban,ufw,zip,unzip,tar \
   --run-command "truncate -s 0 /etc/machine-id"
 
